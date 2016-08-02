@@ -9,16 +9,20 @@
             width: 70%;
             height: 200px;
         }
+
         .user_list {
             width: 25%;
             height: 200px;
         }
+
         .name {
             width: 10%;
         }
+
         .message {
             width: 70%;
         }
+
         .chat {
             width: 10%;
         }
@@ -41,8 +45,10 @@
         <script>
             var socket = io();
             $('#chat').on('submit', function(e) {
-                socket.emit('send message', $('#name').val(), $('#message').val());
-                $('#message').val("");
+                if ($('#message').val() != "") {
+                    socket.emit('send message', $('#name').val(), $('#message').val());
+                    $('#message').val("");
+                }
                 e.preventDefault();
             });
             socket.on('receive message', function(msg) {
@@ -56,17 +62,17 @@
                 $('#chatLog').append(data.name + " 님이 대화에 참여하셨습니다.\n");
                 $('#userList').val(data.userList);
             });
-            socket.on('change name',function(data){
-              $('#chatLog').append(data.name + " 님이 " + data.aftername + " 으로 이름을 변경하였습니다.\n");
-              $('#userList').val(data.userList);
+            socket.on('change name', function(data) {
+                $('#chatLog').append(data.name + " 님이 " + data.aftername + " 으로 이름을 변경하였습니다.\n");
+                $('#userList').val(data.userList);
             });
-            socket.on('welcome',function(data){
-              $('#chatLog').append(data.name + " 님 환영합니다.\n");
-              $('#userList').val(data.userList);
+            socket.on('welcome', function(data) {
+                $('#chatLog').append(data.name + " 님 환영합니다.\n");
+                $('#userList').val(data.userList);
             });
-            socket.on('left',function(data){
-              $('#chatLog').append(data.name + " 님이 대화를 종료하셨습니다.\n");
-              $('#userList').val(data.userList);
+            socket.on('left', function(data) {
+                $('#chatLog').append(data.name + " 님이 대화를 종료하셨습니다.\n");
+                $('#userList').val(data.userList);
             });
         </script>
 </body>
