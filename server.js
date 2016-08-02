@@ -42,21 +42,32 @@ io.on('connection', function(socket) {
     });
 
     socket.on('send message', function(aftername, text) {
-        if (name != aftername) {
-            var i = userList.indexOf(aftername);
-            userList.splice(i,1,aftername);
 
-            socket.broadcast.emit('change name', {
-                name: name,
-                aftername: aftername,
-                userList: userList
-            });
-            socket.emit('change name', {
-                name: name,
-                aftername: aftername,
-                userList: userList
-            });
-            name = aftername;
+
+        if (name != aftername) {
+
+            var i = userList.indexOf(aftername);
+
+            if (i == -1) {
+                userList.splice(i, 1, aftername);
+
+                socket.broadcast.emit('change name', {
+                    name: name,
+                    aftername: aftername,
+                    userList: userList
+                });
+                socket.emit('change name', {
+                    name: name,
+                    aftername: aftername,
+                    userList: userList
+                });
+                name = aftername;
+            } else {
+                socket.emit('name redup', {
+                    name: name,
+                    aftername: aftername
+                });
+            }
         }
 
         var msg = name + ' : ' + text;

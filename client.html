@@ -61,18 +61,26 @@
             socket.on('user connect', function(data) {
                 $('#chatLog').append(data.name + " 님이 대화에 참여하셨습니다.\n");
                 $('#userList').val(data.userList);
+                $('#chatLog').scrollTop($('#chatLog')[0].scrollHeight)
             });
             socket.on('change name', function(data) {
                 $('#chatLog').append(data.name + " 님이 " + data.aftername + " 으로 이름을 변경하였습니다.\n");
                 $('#userList').val(data.userList);
+                $('#chatLog').scrollTop($('#chatLog')[0].scrollHeight)
             });
             socket.on('welcome', function(data) {
                 $('#chatLog').append(data.name + " 님 환영합니다.\n");
                 $('#userList').val(data.userList);
+                $('#chatLog').scrollTop($('#chatLog')[0].scrollHeight)
             });
             socket.on('left', function(data) {
                 $('#chatLog').append(data.name + " 님이 대화를 종료하셨습니다.\n");
                 $('#userList').val(data.userList);
+                $('#chatLog').scrollTop($('#chatLog')[0].scrollHeight)
+            });
+            socket.on('name redup', function(data){
+              $('#chatLog').append(data.aftername + " 은 사용중입니다.\n");
+              $('#name').var(data.name);
             });
         </script>
 </body>
