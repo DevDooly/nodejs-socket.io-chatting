@@ -43,9 +43,18 @@ io.on('connection', function(socket) {
 
     socket.on('send message', function(aftername, text) {
         if (name != aftername) {
+            var i = userList.indexOf(aftername);
+            userList.splice(i,1,aftername);
+
             socket.broadcast.emit('change name', {
-              name : name,
-              aftername : aftername
+                name: name,
+                aftername: aftername,
+                userList: userList
+            });
+            socket.emit('change name', {
+                name: name,
+                aftername: aftername,
+                userList: userList
             });
             name = aftername;
         }
