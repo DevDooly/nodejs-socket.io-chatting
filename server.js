@@ -5,7 +5,7 @@ var io = require('socket.io')(http);
 
 app.get("/", function(req, res) {
     res.sendfile("client.html");
-});
+  });
 
 var count = 1;
 var userList = [];

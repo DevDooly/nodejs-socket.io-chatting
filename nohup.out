@@ -1,0 +1,39 @@
+[33m[nodemon] 1.10.0[39m
+[33m[nodemon] to restart at any time, enter `rs`[39m
+[33m[nodemon] watching: *.*[39m
+[32m[nodemon] starting `node server.js`[39m
+events.js:141
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: EBADF: bad file descriptor, read
+    at Error (native)
+[33m[nodemon] 1.10.0[39m
+[33m[nodemon] to restart at any time, enter `rs`[39m
+[33m[nodemon] watching: *.*[39m
+[32m[nodemon] starting `node server.js`[39m
+events.js:141
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: EBADF: bad file descriptor, read
+    at Error (native)
+server on!
+Tue, 02 Aug 2016 09:24:44 GMT express deprecated res.sendfile: Use res.sendFile instead at server.js:7:9
+user connected:  /#3-40gazIQoLm0J4RAAAA
+[33m[nodemon] 1.10.0[39m
+[33m[nodemon] to restart at any time, enter `rs`[39m
+[33m[nodemon] watching: *.*[39m
+[32m[nodemon] starting `node server.js`[39m
+events.js:141
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: EBADF: bad file descriptor, read
+    at Error (native)
+server on!
+Tue, 02 Aug 2016 09:33:24 GMT express deprecated res.sendfile: Use res.sendFile instead at server.js:7:9
+user connected:  /#EI_aHDm-38i3pyrmAAAA
+user connected:  /#tHeU-kJJZYHnPf8sAAAB
+user disconnected:  /#tHeU-kJJZYHnPf8sAAAB
+user connected:  /#38LeuMDDcginMjxBAAAC

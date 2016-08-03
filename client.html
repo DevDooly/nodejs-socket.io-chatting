@@ -78,11 +78,14 @@
                 $('#userList').val(data.userList);
                 $('#chatLog').scrollTop($('#chatLog')[0].scrollHeight)
             });
-            socket.on('name redup', function(data){
-              $('#chatLog').append(data.aftername + " 은 사용중입니다.\n");
-              $('#name').var(data.name);
+            socket.on('name redup', function(data) {
+                $('#chatLog').append(data.aftername + " 은 사용중입니다.\n");
+                $('#name').var(data.name);
             });
         </script>
+    </div>
+    <br>
+    <a href="https://github.com/DevDooly/nodejs-socket.io-chatting">[github Link]</a
 </body>
 
 </html>
